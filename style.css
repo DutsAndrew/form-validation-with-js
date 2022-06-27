@@ -1,0 +1,51 @@
+body {
+  background-color: #2C2A4A;
+}
+
+#form {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 75vh;
+  margin: auto;
+}
+
+#fieldset {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: #7FDEFF 1px solid;
+  width: 50vw;
+  height: 75vh;
+}
+
+#legend {
+  color: #7FDEFF;
+  font-size: 2em;
+  opacity: 90%;
+}
+
+.form-label {
+  color: #907AD6;
+  font-size: 1.75em;
+  padding: 1%;
+}
+
+.form-input {
+  background-color: #DABFFF;
+  color: #4F518C;
+  height: 5vh;
+  width: 46vw;
+  font-size: 1.4em;
+  padding: 1%;
+}
+
+.form-input:hover {
+  border: 2px solid #7FDEFF;
+  background-color: #7FDEFF;
+}
