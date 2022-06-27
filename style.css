@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 50vw;
-  height: 75vh;
+  height: 90vh;
   margin: auto;
 }
 
@@ -21,7 +21,7 @@ body {
   align-items: flex-start;
   border: #7FDEFF 1px solid;
   width: 50vw;
-  height: 75vh;
+  height: 90vh;
 }
 
 #legend {
@@ -34,12 +34,14 @@ body {
   color: #907AD6;
   font-size: 1.75em;
   padding: 1%;
+  font-weight: 900;
+  letter-spacing: 0.04em;
 }
 
 .form-input {
   background-color: #DABFFF;
   color: #4F518C;
-  height: 5vh;
+  height: 4vh;
   width: 46vw;
   font-size: 1.4em;
   padding: 1%;
@@ -48,4 +50,18 @@ body {
 .form-input:hover {
   border: 2px solid #7FDEFF;
   background-color: #7FDEFF;
+}
+
+#submit-button {
+  width: 20vw;
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #4F518C;
+  color: #2C2A4A;
+  font-size: 1.25em;
+  font-weight: 900;
 }
