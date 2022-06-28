@@ -8,9 +8,10 @@ body {
   align-content: center;
   justify-content: center;
   align-items: center;
-  width: 50vw;
+  width: 40vw;
   height: 90vh;
   margin: auto;
+  margin-top: 1.25%;
 }
 
 #fieldset {
@@ -20,7 +21,7 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   border: #7FDEFF 1px solid;
-  width: 50vw;
+  width: 40vw;
   height: 90vh;
 }
 
@@ -42,7 +43,7 @@ body {
   background-color: #DABFFF;
   color: #4F518C;
   height: 4vh;
-  width: 46vw;
+  width: 36vw;
   font-size: 1.4em;
   padding: 1%;
 }
@@ -64,4 +65,40 @@ body {
   color: #2C2A4A;
   font-size: 1.25em;
   font-weight: 900;
+}
+
+/* FORM VALIDATION FORM VALIDATION FORM VALIDATION FORM VALIDATION FORM VALIDATION FORM VALIDATION FORM VALIDATION FORM VALIDATION */
+
+input:invalid {
+  border: 2px dashed #A40E4C;
+  box-shadow: 0 0 5px 1px #A40E4C;
+}
+
+input:valid {
+  border: 3px solid #907AD6;
+  background-color: #7FDEFF;
+}
+
+input:invalid:required {
+  background-image: linear-gradient(to right, #907AD6, #7FDEFF);
+  box-shadow: 0 0 5px 1px #4F518C;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+.error {
+  width  : 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
 }

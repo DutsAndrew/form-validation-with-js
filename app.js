@@ -53,7 +53,7 @@ function loadForm() {
     inputForZip.setAttribute('id', 'input-zip');
     inputForZip.classList.add('form-input');
     inputForZip.placeholder = '9749';
-    inputForZip.type = 'number';
+    inputForZip.type = 'tel';
     inputForZip.required = true;
     inputForZip.maxLength = 10;
     inputForZip.minLength = 3;
@@ -128,9 +128,9 @@ function formValidation() {
   const passwordError = document.querySelector('#password-error-text');
   const confirmPassword = document.querySelector('#input-confirm-password');
   const confirmPasswordError = document.querySelector('#password-confirm-error-text');
+  const submit = document.querySelector('#submit-button');
 
   email.addEventListener('input', () => {
-    console.log('checking email');
     if (email.validity.valid) {
       emailError.textContent = "";
       emailError.className = 'error';
@@ -140,7 +140,6 @@ function formValidation() {
   })
 
   country.addEventListener('input', () => {
-    console.log('checking country');
     if (country.validity.valid) {
       countryError.textContent = "";
       countryError.className = 'error';
@@ -150,7 +149,6 @@ function formValidation() {
   })
 
   zip.addEventListener('input', () => {
-    console.log('checking zip');
     if (zip.validity.valid) {
       zipError.textContent = "";
       zipError.className = 'error';
@@ -160,7 +158,6 @@ function formValidation() {
   })
 
   password.addEventListener('input', () => {
-    console.log('checking password');
     if (password.validity.valid) {
       passwordError.textContent = "";
       passwordError.className = 'error';
@@ -170,7 +167,6 @@ function formValidation() {
   })
 
   confirmPassword.addEventListener('input', () => {
-    console.log('checking confirm password');
     if (confirmPassword.validity.valid) {
       confirmPasswordError.textContent = "";
       confirmPasswordError.className = 'error';
@@ -179,8 +175,67 @@ function formValidation() {
     }
   })
 
+  submit.addEventListener('submit', (e) => {
+    if (!email.validity.valid) {
+      showError();
+      e.preventDefault();
+    } else if (!country.validity.valid) {
+      showError();
+      e.preventDefault();
+    } else if (!zip.validity.valid) {
+      showError();
+      e.preventDefault();
+    } else if (!password.validity.valid) {
+      showError();
+      e.preventDefault();
+    } else if (!confirmPassword.validity.valid) {
+      showError();
+      e.preventDefault();
+    }
+  })
+
   function showError() {
-
+    if (email.validity.valueMissing) {
+      emailError.textContent = "You need to enter an email address";
+      emailError.className = 'error active';
+    } else if (email.validity.typeMismatch) {
+      emailError.textContent = "The value you entered is not an email address";
+      emailError.className = 'error active';
+    } else if (email.validity.tooShort) {
+      emailError.textContent = `Email should be at least ${ email.minLength } characters; you entered: ${ email.value.length }`;
+      emailError.className = 'error active';
+    } else if (country.validity.valueMissing) {
+      countryError.textContent = "You need to enter your Country's name";
+      countryError.className = 'error active';
+    } else if (country.validity.tooShort) {
+      countryError.textContent = `Your Country's name should be at least ${ country.minLength } characters; you entered: ${ country.value.length }`;
+      countryError.className = 'error active';
+    } else if (zip.validity.valueMissing) {
+      zipError.textContent = "You need to enter a zip code";
+      zipError.className = 'error active';
+    } else if (zip.validity.tooShort) {
+      zipError.textContent = `Your zip code should be at least ${ zip.minLength } characters; you entered: ${ zip.value.length }`;
+      zipError.className = 'error active';
+    } else if (password.validity.valueMissing) {
+      passwordError.textContent = "You need to enter a password";
+      passwordError.className = 'error active';
+    } else if (password.validity.tooShort) {
+      passwordError.textContent = `Your password should be at least ${ password.minLength } characters; you entered: ${ password.value.length }`;
+      passwordError.className = 'error active';
+    } else if (password.validity.typeMismatch) {
+      passwordError.textContent = "You need to enter a valid password";
+      passwordError.className = 'error active';
+    } else if (confirmPassword.validity.valueMissing) {
+      confirmPasswordError.textContent = "You need to confirm your password";
+      confirmPasswordError.className = 'error active';
+    } else if (confirmPassword.validity.tooShort) {
+      confirmPasswordError.textContent = `Your password should be at least ${ confirmPassword.minLength } characters; you entered: ${ confirmPassword.value.length }`;
+      confirmPasswordError.className = 'error active';
+    } else if (confirmPassword.validity.typeMismatch) {
+      confirmPasswordError.textContent = "You're confirmed password does not match the necessary criteria";
+      confirmPasswordError.className = 'error active';
+    } else {
+      return;
+    }
   }
-
 }
